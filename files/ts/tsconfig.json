@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    // this enables stricter inference for data properties on `this`
+    //"strict": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": false,
+    "paths": {
+        "@app/*": ["./resources/app/js/*"],
+        "@admin/*": ["./resources/admin/js/*"],
+    }
+  },
+  "include": [
+    "resources/app/js/**/*",
+    "resources/admin/js/**/*"
+  ],
+  "exclude": [
+      "node_modules"
+  ],
+  "files": [
+    "shims-vue.d.ts",
+  ]
+}
