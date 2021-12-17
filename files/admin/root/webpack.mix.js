@@ -5,7 +5,7 @@ const path = require('path');
 // Admin-App
 mix.ts('resources/app/js/app.ts', 'public/js').vue();
 mix.postCss('resources/app/css/app.css', 'public/css/app', [
-    tailwindcss('./app.tailwind.config.js'),
+    tailwindcss('./tailwind.config.js'),
 ]);
 mix.alias({
     '@app': path.join(__dirname, 'resources/app/js'),

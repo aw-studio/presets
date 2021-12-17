@@ -1,13 +1,6 @@
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {
-    // mode: 'jit',
-    variants: {
-        extend: {
-            backgroundColor: ['active'],
-            textColor: ['active'],
-        },
-    },
     theme: {
         container: {
             center: true,
