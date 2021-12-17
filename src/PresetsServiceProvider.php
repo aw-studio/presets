@@ -5,6 +5,7 @@ namespace AwStudio\Presets;
 use AwStudio\Presets\Console\AdminCommand;
 use AwStudio\Presets\Console\AppCommand;
 use AwStudio\Presets\Console\InertiaCommand;
+use AwStudio\Presets\Console\PageBuilderCommand;
 use AwStudio\Presets\Console\SetupCommand;
 use AwStudio\Presets\Console\TypeScriptCommand;
 use AwStudio\Presets\Console\VueCommand;
@@ -47,6 +48,7 @@ class PresetsServiceProvider extends ServiceProvider
                 SetupCommand::class,
                 TypeScriptCommand::class,
                 VueCommand::class,
+                PageBuilderCommand::class,
             ]);
         }
     }
