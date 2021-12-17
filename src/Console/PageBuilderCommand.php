@@ -24,7 +24,7 @@ class PageBuilderCommand extends BaseCommand
      * @var array
      */
     public $composerPackages = [
-        'aw-studio/laravel-page-builder',
+        'aw-studio/laravel-sites',
     ];
 
     /**
