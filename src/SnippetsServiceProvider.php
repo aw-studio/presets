@@ -11,7 +11,7 @@ use AwStudio\Snippets\Console\TypeScriptCommand;
 use AwStudio\Snippets\Console\VueCommand;
 use Illuminate\Support\ServiceProvider;
 
-class PresetsServiceProvider extends ServiceProvider
+class SnippetsServiceProvider extends ServiceProvider
 {
     /**
      * Register application services.
