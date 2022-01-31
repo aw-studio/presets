@@ -1,14 +1,14 @@
 <?php
 
-namespace AwStudio\Presets;
+namespace AwStudio\Snippets;
 
-use AwStudio\Presets\Console\AdminCommand;
-use AwStudio\Presets\Console\AppCommand;
-use AwStudio\Presets\Console\InertiaCommand;
-use AwStudio\Presets\Console\PageBuilderCommand;
-use AwStudio\Presets\Console\SetupCommand;
-use AwStudio\Presets\Console\TypeScriptCommand;
-use AwStudio\Presets\Console\VueCommand;
+use AwStudio\Snippets\Console\AdminCommand;
+use AwStudio\Snippets\Console\AppCommand;
+use AwStudio\Snippets\Console\InertiaCommand;
+use AwStudio\Snippets\Console\PageBuilderCommand;
+use AwStudio\Snippets\Console\SetupCommand;
+use AwStudio\Snippets\Console\TypeScriptCommand;
+use AwStudio\Snippets\Console\VueCommand;
 use Illuminate\Support\ServiceProvider;
 
 class PresetsServiceProvider extends ServiceProvider

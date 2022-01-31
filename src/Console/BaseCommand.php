@@ -1,6 +1,6 @@
 <?php
 
-namespace AwStudio\Presets\Console;
+namespace AwStudio\Snippets\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -56,7 +56,7 @@ abstract class BaseCommand extends Command
             File::makeDirectory($destination);
         }
 
-        File::copyDirectory(__DIR__."/../../files/{$group}/.", $destination);
+        File::copyDirectory(__DIR__."/../../snippets/{$group}/.", $destination);
     }
 
     /**

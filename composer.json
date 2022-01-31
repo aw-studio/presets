@@ -1,5 +1,5 @@
 {
-    "name": "aw-studio/presets",
+    "name": "aw-studio/snippets",
     "license": "MIT",
     "authors": [
         {
@@ -12,7 +12,7 @@
     },
     "autoload": {
         "psr-4": {
-            "AwStudio\\Presets\\": "src"
+            "AwStudio\\Snippets\\": "src"
         }
     },
     "autoload-dev": {
@@ -32,7 +32,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "AwStudio\\Presets\\PresetsServiceProvider"
+                "AwStudio\\Snippets\\SnippetsServiceProvider"
             ]
         },
         "branch-alias": {

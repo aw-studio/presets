@@ -1,6 +1,6 @@
 <?php
 
-namespace AwStudio\Presets\Console;
+namespace AwStudio\Snippets\Console;
 
 class VueCommand extends BaseCommand
 {
