@@ -11,20 +11,10 @@ use AwStudio\Snippets\Install\TypeScriptCommand;
 use AwStudio\Snippets\Install\VueCommand;
 use AwStudio\Snippets\Make\ControllerMakeCommand;
 use AwStudio\Snippets\Make\IndexMakeCommand;
-use Illuminate\Contracts\Support\DeferrableProvider;
-use Illuminate\Support\AggregateServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
-class SnippetsServiceProvider extends AggregateServiceProvider implements DeferrableProvider
+class SnippetsServiceProvider extends ServiceProvider
 {
-    /**
-     * The provider class names.
-     *
-     * @var string[]
-     */
-    protected $providers = [
-        //
-    ];
-
     /**
      * Register application services.
      *
@@ -32,8 +22,6 @@ class SnippetsServiceProvider extends AggregateServiceProvider implements Deferr
      */
     public function register()
     {
-        parent::register();
-
         $this->registerCommands();
     }
 
