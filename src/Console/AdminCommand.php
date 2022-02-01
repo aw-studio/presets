@@ -71,6 +71,7 @@ class AdminCommand extends BaseCommand
         $this->deleteWebpackIfExists();
 
         $this->moveFilesTo('admin/root', base_path());
+        $this->moveFilesTo('admin/migrations', database_path('migrations'));
         $this->moveFilesTo('admin/routes', base_path('routes'));
         $this->moveFilesTo('admin/resources', resource_path());
         $this->moveFilesTo('admin/views', resource_path('views'));

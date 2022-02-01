@@ -58,6 +58,8 @@ class InertiaCommand extends BaseCommand
     {
         $this->needs($this->needs);
 
+        $this->moveFilesTo('inertia/middleware', app_path('Http/Middleware'));
+
         $this->rememberInstallingComposerPackages($this->composerPackages);
         $this->rememberInstallingNpmPackages($this->npmPackages);
 
