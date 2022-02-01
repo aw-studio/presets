@@ -2,17 +2,29 @@
 
 namespace AwStudio\Snippets;
 
-use AwStudio\Snippets\Console\AdminCommand;
-use AwStudio\Snippets\Console\AppCommand;
-use AwStudio\Snippets\Console\InertiaCommand;
-use AwStudio\Snippets\Console\PageBuilderCommand;
-use AwStudio\Snippets\Console\SetupCommand;
-use AwStudio\Snippets\Console\TypeScriptCommand;
-use AwStudio\Snippets\Console\VueCommand;
-use Illuminate\Support\ServiceProvider;
+use AwStudio\Snippets\Install\AdminCommand;
+use AwStudio\Snippets\Install\AppCommand;
+use AwStudio\Snippets\Install\InertiaCommand;
+use AwStudio\Snippets\Install\PageBuilderCommand;
+use AwStudio\Snippets\Install\SetupCommand;
+use AwStudio\Snippets\Install\TypeScriptCommand;
+use AwStudio\Snippets\Install\VueCommand;
+use AwStudio\Snippets\Make\ControllerMakeCommand;
+use AwStudio\Snippets\Make\IndexMakeCommand;
+use Illuminate\Contracts\Support\DeferrableProvider;
+use Illuminate\Support\AggregateServiceProvider;
 
-class SnippetsServiceProvider extends ServiceProvider
+class SnippetsServiceProvider extends AggregateServiceProvider implements DeferrableProvider
 {
+    /**
+     * The provider class names.
+     *
+     * @var string[]
+     */
+    protected $providers = [
+        //
+    ];
+
     /**
      * Register application services.
      *
@@ -20,16 +32,8 @@ class SnippetsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
-    }
+        parent::register();
 
-    /**
-     * Boot application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
         $this->registerCommands();
     }
 
@@ -40,16 +44,32 @@ class SnippetsServiceProvider extends ServiceProvider
      */
     public function registerCommands(): void
     {
-        if ($this->app->runningInConsole()) {
-            $this->commands([
-                AdminCommand::class,
-                AppCommand::class,
-                InertiaCommand::class,
-                SetupCommand::class,
-                TypeScriptCommand::class,
-                VueCommand::class,
-                PageBuilderCommand::class,
-            ]);
-        }
+        $this->commands([
+            // Install
+            AdminCommand::class,
+            AppCommand::class,
+            InertiaCommand::class,
+            SetupCommand::class,
+            TypeScriptCommand::class,
+            VueCommand::class,
+            PageBuilderCommand::class,
+
+            // Make
+            IndexMakeCommand::class,
+        ]);
+
+        $this->registerControllerMakeCommand();
+    }
+
+    /**
+     * Register the command.
+     *
+     * @return void
+     */
+    protected function registerControllerMakeCommand()
+    {
+        $this->app->extend('command.controller.make', function ($cmd, $app) {
+            return new ControllerMakeCommand($app['files']);
+        });
     }
 }

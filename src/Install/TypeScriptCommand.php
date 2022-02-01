@@ -1,6 +1,8 @@
 <?php
 
-namespace AwStudio\Snippets\Console;
+namespace AwStudio\Snippets\Install;
+
+use AwStudio\Snippets\BaseCommand;
 
 class TypeScriptCommand extends BaseCommand
 {

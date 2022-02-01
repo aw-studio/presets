@@ -1,6 +1,6 @@
 <?php
 
-namespace AwStudio\Snippets\Console;
+namespace AwStudio\Snippets;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;

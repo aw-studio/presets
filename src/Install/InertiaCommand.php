@@ -1,7 +1,8 @@
 <?php
 
-namespace AwStudio\Snippets\Console;
+namespace AwStudio\Snippets\Install;
 
+use AwStudio\Snippets\BaseCommand;
 use Illuminate\Support\Facades\File;
 
 class InertiaCommand extends BaseCommand
