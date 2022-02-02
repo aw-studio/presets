@@ -2,6 +2,7 @@
 
 namespace AwStudio\Snippets;
 
+use AwStudio\Snippets\Add\PageAddCommand;
 use AwStudio\Snippets\Install\AdminCommand;
 use AwStudio\Snippets\Install\AppCommand;
 use AwStudio\Snippets\Install\InertiaCommand;
@@ -41,6 +42,7 @@ class SnippetsServiceProvider extends ServiceProvider
             TypeScriptCommand::class,
             VueCommand::class,
             PageBuilderCommand::class,
+            PageAddCommand::class,
 
             // Make
             IndexMakeCommand::class,
