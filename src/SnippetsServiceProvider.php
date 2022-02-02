@@ -41,6 +41,7 @@ class SnippetsServiceProvider extends ServiceProvider
             TypeScriptCommand::class,
             VueCommand::class,
             PageBuilderCommand::class,
+            TableAddCommand::class,
 
             // Make
             IndexMakeCommand::class,
