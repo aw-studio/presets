@@ -2,6 +2,7 @@
 
 namespace AwStudio\Snippets;
 
+use AwStudio\Snippets\Add\TableAddCommand;
 use AwStudio\Snippets\Install\AdminCommand;
 use AwStudio\Snippets\Install\AppCommand;
 use AwStudio\Snippets\Install\InertiaCommand;
