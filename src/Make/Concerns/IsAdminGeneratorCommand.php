@@ -15,7 +15,7 @@ trait IsAdminGeneratorCommand
     protected function rootNamespace()
     {
         if ($this->option('admin')) {
-            return 'Admin';
+            return 'Admin\\';
         }
 
         return parent::rootNamespace();
@@ -35,7 +35,7 @@ trait IsAdminGeneratorCommand
             return base_path('admin/'.str_replace('\\', '/', $name).'.php');
         }
 
-        parent::getPath($name);
+        return parent::getPath($name);
     }
 
     /**
