@@ -9,13 +9,16 @@ use Illuminate\Support\Str;
 
 class TableAddCommand extends BaseCommand
 {
+    use Concerns\HasAdminOption;
+
     /**
      * The name of the console command.
      *
      * @var string
      */
     protected $signature = 'add:table
-                            {name : Creates Vue Table files for a given Path/Name}
+                            {resource : The resource (path) for which the table should be created}
+                            {name? : Specify the table name (resource name is used by default)}
                             ';
 
     /**
@@ -55,14 +58,13 @@ class TableAddCommand extends BaseCommand
     {
         [$path, $name] = $this->parseInput();
 
-
-        File::ensureDirectoryExists(resource_path('admin/js/'.$path));
+        File::ensureDirectoryExists(resource_path($this->determineResourcePath($path)));
 
         $this->createVueFile('Table', $path, $name);
         $this->createVueFile('TableHead', $path, $name);
         $this->createVueFile('TableBody', $path, $name);
 
-        $this->info("Created ${name}Table, ${name}TableHead and ${name}TableBody");
+        $this->info("Created ${name}Table, ${name}TableHead and ${name}TableBody in " . $this->determineResourcePath($path));
 
         return 0;
     }
@@ -74,10 +76,15 @@ class TableAddCommand extends BaseCommand
      */
     public function parseInput()
     {
-        $input = $this->argument('name');
+        $input = $this->argument('resource');
 
-        $path = Str::before($input, '/');
-        $name = Str::afterLast($input, '/');
+        if ($this->argument('name')) {
+            $name = Str::ucfirst($this->argument('name'));
+        } else {
+            $name = Str::of($input)->afterLast('/')->singular()->ucfirst();
+        }
+
+        $path = Str::of($input)->before('/')->ucfirst();
 
         if (Str::contains($name, 'Table')) {
             $name = Str::before($name, 'Table');
@@ -104,10 +111,12 @@ class TableAddCommand extends BaseCommand
 
         $content = $this->replaceFileContent(File::get($file), $name);
 
-        $outputPath = resource_path('admin/js/'.$path.'/'.$name.$stub.'.vue');
+        $outputName =  $path.'/'.$name.''.$stub.'.vue';
+
+        $outputPath = resource_path($this->determineResourcePath($outputName));
 
         if (File::exists($outputPath)) {
-            throw new FileExistsException("/admin/js/$path/$name$stub.vue already exists.");
+            throw new FileExistsException("$outputName already exists");
         }
 
         File::put($outputPath, $content);
