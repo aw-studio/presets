@@ -26,7 +26,7 @@ trait HasAdminOption
     }
 
     /**
-     * Determine which resource path to
+     * Determine which resource path to use.
      *
      * @param string $path
      * @return string
@@ -34,8 +34,8 @@ trait HasAdminOption
     public function determineResourcePath($path)
     {
         if ($this->option('admin')) {
-            return resource_path('admin/js/'.$path);
+            return 'admin/js/'.$path;
         }
-        return resource_path('/app/js/'.$path);
+        return '/app/js/'.$path;
     }
 }

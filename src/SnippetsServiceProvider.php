@@ -2,6 +2,7 @@
 
 namespace AwStudio\Snippets;
 
+use AwStudio\Snippets\Add\TableAddCommand;
 use AwStudio\Snippets\Add\PageAddCommand;
 use AwStudio\Snippets\Install\AdminCommand;
 use AwStudio\Snippets\Install\AppCommand;
@@ -42,6 +43,7 @@ class SnippetsServiceProvider extends ServiceProvider
             TypeScriptCommand::class,
             VueCommand::class,
             PageBuilderCommand::class,
+            TableAddCommand::class,
             PageAddCommand::class,
 
             // Make
